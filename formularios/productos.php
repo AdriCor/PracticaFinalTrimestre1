@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda</title>
+    <title>Productos</title>
 </head>
 
 <body>
@@ -97,7 +97,9 @@
         <br><br>
         <!-- maximo 255 char -->
         <label id="description"> Descripción del producto:</label>
-        <input type="text" id="price"></input><br><br>
+        <input type="text" id="price"></input>
+        <?php if (isset($err_descrip)) echo $err_descrip; ?>
+        <br><br>
         <!-- entre 0 y 9 -->
         <label id="Quantity"> Cantidades del Producto:</label>
         <input type="text" id="Quantity"></input>
