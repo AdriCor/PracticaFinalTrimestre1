@@ -22,10 +22,9 @@
 
             if (strlen($temp_name) > 40) {
                 $err_name = "*El nombre debe tener máximo 40 caracteres";
-            }else if(!preg_match("/^[a-zA-ZñÑáÁéÉíÍóÓúÚ 0-9]{0,40}$/", $temp_name )){
-                $err_name="*EL nombre solo puede contener u mayusculas, minúsculas, ñ, acentosy números";
-            } 
-            else {
+            } else if (!preg_match("/^[a-zA-ZñÑáÁéÉíÍóÓúÚ 0-9]{0,40}$/", $temp_name)) {
+                $err_name = "*EL nombre solo puede contener u mayusculas, minúsculas, ñ, acentosy números";
+            } else {
                 $name = $temp_name;
             }
         }
@@ -41,8 +40,8 @@
             } else {
                 if ($temp_price < 0) {
                     $err_price = "*El precio debe ser mayor o igual a cero";
-                }else if(!preg_match('/^[1-9]$/', $temp_price )){
-                    $err_name="*EL precio solo admite cantidades numéricas";
+                } else if (!preg_match('/^[1-9]$/', $temp_price)) {
+                    $err_name = "*EL precio solo admite cantidades numéricas";
                 } else {
                     $price = $_POST["price"];
                 }
@@ -57,14 +56,14 @@
 
             if (strlen($temp_descrip) > 255) {
                 $err_descrip = "*La descripción puede contener como máximo 255 caracteres";
-            }else if(!preg_match("/^[a-zA-ZñÑáÁéÉíÍóÓúÚ 0-9]{0,255}$/", $temp_descrip )){
-                $err_descrip="*La descripción solo puede contener u mayusculas, minúsculas, ñ, acentosy números";
-            }else {
+            } else if (!preg_match("/^[a-zA-ZñÑáÁéÉíÍóÓúÚ 0-9]{0,255}$/", $temp_descrip)) {
+                $err_descrip = "*La descripción solo puede contener u mayusculas, minúsculas, ñ, acentosy números";
+            } else {
                 $descrip = $temp_descrip;
             }
         }
         // Valido la cantidad de stock del producto
-        if (empty($_POST["quantity"])) {
+        if (empty($_POST["Quantity"])) {
             $err_quantity = "*La cantidad es obligatoria";
         } else {
             $temp_quantity = $_POST["quantity"];
@@ -74,9 +73,9 @@
             } else {
                 if ($temp_quantity < 0) {
                     $err_quantityt = "*La cantidad debe ser mayor o igual a cero";
-                } else if(!preg_match('/^[0-9]$/', $temp_quantity )){
-                    $err_quantity="*Ela cantidad solo admite cifras numéricas";
-                }else {
+                } else if (!preg_match('/^[0-9]$/', $temp_quantity)) {
+                    $err_quantity = "*Ela cantidad solo admite cifras numéricas";
+                } else {
                     $quantity = $_POST["quantity"];
                 }
             }
@@ -87,7 +86,7 @@
     <form action="" method="post">
         <!-- maximo 40 char,acepta de a-z en min y mayusc, ñ y acentos -->
         <label for="nameProduct">Nombre del Producto: </label>
-        <input type="text" id="name" ></input>
+        <input type="text" id="name"></input>
         <?php if (isset($err_name)) echo $err_name; ?>
         <br><br>
         <!-- entre 1 y 9 -->
