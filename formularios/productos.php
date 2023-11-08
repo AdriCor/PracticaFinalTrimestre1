@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos</title>
+    <?php require 'BaseDatosTienda.php' ?>
+    <?php require 'depurar.php' ?>
 </head>
 
 <body>

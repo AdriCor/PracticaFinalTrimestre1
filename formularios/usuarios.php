@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios</title>
+    <?php require 'BaseDatosTienda.php' ?>
+    <?php require 'depurar.php' ?>
 </head>
 
 <body>
@@ -12,13 +14,18 @@
     if (
         $_SERVER["REQUEST_METHOD"] == "POST" &&
         $_POST["formulario"] == "insertar"
-    ) {
+    ) 
+    $temp_usu = $_POST["nameUsu"];
+    $temp_pass = $_POST["contraseña"];
+    $temp_edad = $_POST["edad"];
+
+    {
 
         //  Valido el usuario
         if (empty($_POST["nameUsu"])) {
             $err_usu = "*El usuario es obligatorio";
         } else {
-            $temp_usu = $_POST["nameUsu"];
+            
 
             if (strlen($temp_usu) > 12 || strlen($temp_usu) > 4) {
                 $err_name = "*El usuario debe tener entre 4 y 12 caracteres";
@@ -30,10 +37,10 @@
         }
 
         //Valido la contraseña
-        if (empty($_POST["contraseña"])) {
-            $err_dpass = "*la contraseña es obligatoria";
+        if (empty($temp_usu)) { //he probado por aqui pero nada
+            $err_pass = "*la contraseña es obligatoria";
         } else {
-            $temp_pass = $_POST["contraseña"];
+            
 
             if (strlen($temp_pass) > 255) {
                 $err_pass = "*La contraseña puede contener como máximo 255 caracteres";
@@ -47,7 +54,7 @@
         if (empty($_POST["edad"])) {
             $err_edad = "*La fecha de nacimiento es obligatoria";
         } else {
-            $temp_edad = $_POST["edad"];
+            
             function obtener_edad_segun_fecha($temp_edad)
             {
                 $nacimiento = new DateTime($temp_edad);
