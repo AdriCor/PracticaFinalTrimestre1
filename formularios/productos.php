@@ -7,6 +7,7 @@
     <title>Productos</title>
     <?php require "depurar.php"?>
 </head>
+<!-- Falta la imagen. -->
 
 <body>
     <?php
